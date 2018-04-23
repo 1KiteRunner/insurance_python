@@ -1,0 +1,47 @@
+version: 1
+
+loggers:
+  root:
+    level: INFO
+    handlers: [console]
+  tornado:
+    level: INFO
+    handlers: [console]
+  request:
+    level: INFO
+    handlers: [request, console]
+    propagate: no
+  access:
+    level: INFO
+    handlers: [access, console]
+    propagate: no
+
+formatters:
+  simple:
+    format: '[%(asctime)s] - [%(levelname)s] - [%(filename)s:%(lineno)s] - %(message)s'
+  timedRotating:
+    format: '[%(asctime)s] - [%(levelname)s] - [%(filename)s:%(lineno)s] - %(message)s'
+    datefmt: '%m-%d %H:%M'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+  request:
+    class: common.log.MyTimedRotatingFileHandler
+    level: INFO
+    formatter: timedRotating
+    filename: 'C:/Python27/Log/request.log'
+    when: 'midnight'
+    interval: 1
+    backupCount: 60
+    encoding: 'utf8'
+  access:
+    class: common.log.MyTimedRotatingFileHandler
+    level: INFO
+    formatter: timedRotating
+    filename: 'C:/Python27/Log/access.log'
+    when: 'midnight'
+    interval: 1
+    backupCount: 90

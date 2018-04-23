@@ -1,0 +1,22 @@
+__author__ = 'weikai'
+import base64
+
+def img2base64(filepath):
+    f=open(filepath,'rb')
+    ls_f=base64.b64encode(f.read())
+    f.close()
+    return  ls_f
+
+def base642img(base64str,filepath):
+    #base64str=base64str.replace('data:image/jpg;base64,','')
+    imgdata=base64.b64decode(base64str)
+    file=open(filepath,'wb')
+    file.write(imgdata)
+    file.close()
+
+
+
+#base642img(img2base64('web.jpg'),'2.jpg')
+#print img2base64('C:\\Users\\weikai\\Desktop\\pic\\2.jpg')
+#base64str ='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAZADcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD1i7uPslnPc+TLN5UbSeVCu53wM7VHcnoBXIXXxJtrG2e5u/DXiW3gTG6WaxCKuTgZJbA5IFdrXMu8fiLxbHEhSXT9EbzJCAGV7wghV5XGY13E4bIZ17imrdRoueIvFOmeGLeOTUHlLy58qKJNzPgjOOgGNwPJFaVjeR6hp9texBljuIllQOMEBgCM4781S8Tf8iprH/XjP/6AaPDP/IqaP/14wf8AoAqLvmsItalqVrpNk93dvtjXgAdWPYAdzUVxrdjZ6IusXcjQWZjSQsyElQ2AMhcnqw6VyF94g0vVDf3FzdbZIYpoLCERtghkwZCcdW6YOAB780/UfO1Xwbo11pEX22XSLm3uJbcZVnMSfMi5HJ+YfrjJ4Lg1KVi1HVXNzSfF9jqmpnTZLW+0+9MfmRwX8PlNKvOSoyc4wf164OCuK+IHiG7vNFsb610jU9MeC7KreXIEEqEocogB3YYZyeB8oHPYrpVHmV1oaqjzK60PVax/Dehf2Bp0sElz9quri4kubm52bPNkc5LbckLxgYHHHvWxRXOc5i+I9H1DWrQWtnq/2CGRHjuF+zLL5qsAMZJBXAz09fajw5o+oaLaG1vNX+3wxokduv2ZYvKVQRjIJLZGOvp71tUUrK9wIL62+2afc2u/Z50TR7sZxkEZx+NVJdLmOgR6bb30ttNFFGkd1EoyrJjB2nggleV7gkd60qKa3uNM5zTvDE8eqwarrGsT6pfWyuluTGsMcQYYJCL1bqMk8gjjgGiujopuTY3Js//Z'
+#base642img(base64str,'C://')
